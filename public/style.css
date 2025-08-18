@@ -1,0 +1,181 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'urbanista' , sans-serif;
+}
+.navbar .navbar-brand{
+  font-size: 1rem;
+}
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar2 .navbar-brand2{
+  font-size: 2rem;
+}
+
+#navbar2{
+  font-size: 1.5rem;
+  height: 3rem;
+}
+/* media query navbar  */
+
+/* Default styling - side-by-side on large screens */
+.navbar .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive behavior for small screens */
+@media (max-width: 768px) {
+  .navbar .container-fluid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .navbar .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+
+/* media query navbar two  */
+
+@media (max-width: 768px) {
+  .navbar2 .container-fluid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar2 .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar2 a {
+    padding-left: 1rem;
+  }
+}
+/* 
+.small-images .img {
+  height: 2rem;
+  padding: 7rem;
+}
+
+.small-images .text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+} */
+
+.images .img:hover{
+  cursor: pointer;
+}
+
+.images a{
+  text-decoration: none ;
+  cursor: pointer;
+  color: black;
+}
+
+
+.section-two{
+  background-color:  #dcdcd7;
+}
+.section-two img {
+  height: 40rem;
+}
+
+.section-two .btn{
+  color: 	#F5F5DC;
+  height: 4rem;
+  width: 11rem;
+  border-radius: 10%;
+  font-size: larger;
+}
+.section-two .btn a {
+   text-decoration: none;
+     color: 	#F5F5DC;
+}
+.section-two h5{
+  font-size: 4rem;
+  font-weight: bolder;
+
+}
+.cardss i {
+  font-size: 2.8rem;
+}
+
+.why-choose h5{
+  font-size: 3rem;
+}
+.why-choose p{
+  font-size: medium;
+}
+.why-choose h6{
+  font-size: 2rem;
+}
+
+.stock-element{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+  border: 0.2rem solid;
+  border-radius: 0.8rem;
+  margin: 0.8rem 0;
+}
+
+.stock-element button {
+  color: black;
+  background-color: transparent;
+  padding: 0.6rem 2rem;
+  font-weight: bold;
+  border: none;
+}
+.product-quantity{
+  padding: 0rem 3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.product-container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 4.8rem;
+}
+
+.sectionProduct .checkout{
+  font-size: 3rem;
+}
+
+.custom-remove-btn {
+  background-color: #F5F5DC;
+  color: #000;
+  border: none;
+}
+.custom-remove-btn:hover {
+  opacity: 0.9;
+}
+
+
+  .custom-tab {
+    background-color: #e0e0e0 !important;  /* Light grey background */
+    color: #000 !important;               /* Black text */
+    border-radius: 5px;
+    margin: 0 5px;
+  }
+
+  .custom-tab.active {
+    background-color: #6c757d !important; /* Bootstrap's secondary/grey */
+    color: #fff !important;
+  }

@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E commerce </title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+  body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+
+  .dark-mode .card,
+  .dark-mode .tab-content,
+  .dark-mode .contact-container {
+    background-color: #1f1f1f !important;
+    color: #f5f5f5;
+  }
+
+  .dark-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 999;
+  }
+</style>
+
+  </head>
+  <body>
+
+    <!-- navbar one start -->
+  <nav class="navbar navbar-light p-1" style="background-color: rgba(39, 37, 37, 0.945)">
+  <div class="container-fluid">
+    <a class="navbar-brand2 text-light mx-4 text-capitalize" >free shiping, 30-day return or refund guarantee</a>
+    <div class="d-flex mx-4">
+      <a href="" id="logout" class="text-light text-capitalize">signOut</a> &nbsp; &nbsp;
+      <a href="contact.html" class="text-light text-capitalize">Contact us</a>
+  
+    </div >
+  </div>
+</nav>
+<!-- navbar one ends -->
+
+<!-- navbar two start  -->
+
+
+<nav class="navbar navbar-light bg-light mx-3 my-3">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <!-- Left side -->
+    <a href="products.html" class="navbar-brand text-dark text-capitalize fw-bolder mt-auto">
+      OUR STORE
+    </a>
+
+    <!-- Right side -->
+    <div class="d-flex align-items-center gap-4">
+      
+      <!-- Dark Mode Switch -->
+      <div class="form-check form-switch mb-0">
+        <input class="form-check-input  mb-3 mt-3 fs-5" type="checkbox" id="darkSwitch">
+        <label class="form-check-label fs-3 " for="darkSwitch" >🌙</label>
+      </div>
+
+      <!-- Nav Links -->
+      <a href="products.html" class="text-dark text-capitalize text-decoration-none">Home</a>
+      <a href="#hello2" class="text-dark text-capitalize text-decoration-none">About</a>
+      <a href="#hello" class="text-dark text-capitalize text-decoration-none">Products</a>
+      <a href="contact.html" class="text-dark text-capitalize text-decoration-none">Contact</a>
+      <a href="profile.html" class="text-dark text-capitalize text-decoration-none">My Profile</a>
+      <a href="cart.html" class="text-dark text-capitalize text-decoration-none">🛒</a>
+      
+    </div>
+  </div>
+</nav>
+
+
+<!-- navbar two ends  -->
+
+<!-- hero section start  -->
+
+
+<!-- Container for category icons -->
+ <div class="container  images py-4">
+  <div class="d-flex justify-content-between flex-nowrap overflow-auto text-center">
+
+    <div class="mx-3">
+      <a href="products.html">
+      <img src="images/1.webp" class="img-fluid" style="max-width: 80px;" alt="Top Offers">
+      <p class="fw-bold mt-2">TOP OFFERS</p></a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html"><img src="images/2.webp" class="img-fluid" style="max-width: 80px;" alt="Mobile & Tablets">
+      <p class="fw-bold mt-2">MOBILE & TABLETS</p></a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">
+      <img src="images/3.webp" class="img-fluid" style="max-width: 80px;" alt="Appliances">
+      <p class="fw-bold mt-2">APPLIANCES</p></a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">     <img src="images/4.webp" class="img-fluid" style="max-width: 80px;" alt="Electronics">
+      <p class="fw-bold mt-2">ELECTRONICS</p></a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">
+      <img src="images/5.webp" class="img-fluid" style="max-width: 80px;" alt="Fashion">
+      <p class="fw-bold mt-2">FASHION</p></a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">      <img src="images/6.webp" class="img-fluid" style="max-width: 80px;" alt="Beauty & Food">
+      <p class="fw-bold mt-2">BEAUTY & FOOD</p></a>
+
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">
+      <img src="images/7.webp" class="img-fluid" style="max-width: 80px;" alt="Home & Kitchen">
+      <p class="fw-bold mt-2">HOME & KITCHEN</p>
+      </a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">      <img src="images/8.webp" class="img-fluid" style="max-width: 80px;" alt="Furniture">
+      <p class="fw-bold mt-2">FURNITURE</p></a>
+
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">
+      <img src="images/9.webp" class="img-fluid" style="max-width: 80px;" alt="New Item 1">
+      <p class="fw-bold mt-2">FLIGHT BOOKING</p>
+      </a>
+    </div>
+
+    <div class="mx-3">
+      <a href="products.html">
+      <img src="images/10.webp" class="img-fluid" style="max-width: 80px;" alt="New Item 2">
+      <p class="fw-bold mt-2">GROCERY</p></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- hero section start  one  -->
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src=" images\images5.webp" class="d-block w-100" alt="..." height="80%;" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="images\images2.webp" class="d-block w-100" alt="..."  height="80%;" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="images\images3.webp" class="d-block w-100" alt="..."  height="80%;" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="images\images.webp " class="d-block w-100" alt="..."  height="80%;" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="images\images4.webp" class="d-block w-100" alt="..."  height="80%;" width="100%">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- hero section ends one  -->
+
+<!-- hero section two  -->
+  <div class="container-fluid section-two py-5">
+  <div class="row align-items-center" style="min-height: 100vh;">
+    
+    <!-- Left div -->
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-start text-dark ps-5">
+      <h5 class="mb-4">DISCOVER YOUR STYLE <br>TODAY!!</h5>
+      <button class="btn bg-dark text-light fw-bold "> <a href="#hello">Explore More</button></a>
+    </div>
+
+    <!-- Right div -->
+    <div class="col-md-6 text-center">
+      <img src="images\girl2.jpg" alt="Fashion" class="img-fluid">
+    </div>
+
+  </div>
+</div>
+<!-- hero cards  section two ends  -->
+<div class="container my-5">
+  <div class="row g-4">
+    
+    <!-- Card 1 -->
+    <div class="col-lg-4">
+      <div class="card h-100 shadow">
+        <div class="row g-0 h-100">
+          <div class="col-6 d-flex flex-column justify-content-center pt-5 pb-4 ps-5">
+            <p> NEW YEAR SALE</p>
+            <h5 class="fw-bold">Get And Extra 50% Off</h5>
+            <a href="products.html" class="btn btn-dark mt-auto" style="color: #F5F5DC;"  >SHOW NOW</a>
+          </div>
+          <div class="col-6 p-3">
+            <img src="images\headphone.webp" class="img-fluid h-90 w-90" style="object-fit: cover;" alt="Image 1">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4">
+      <div class="card h-100 shadow">
+        <div class="row g-0 h-100">
+         <div class="col-6 d-flex flex-column justify-content-center pt-5 pb-4 ps-5">
+            <p> NEW YEAR SALE</p>
+            <h5 class="fw-bold">Get And Extra 50% Off</h5>
+            <a href="products.html" class="btn btn-dark mt-auto" style="color: #F5F5DC;">SHOW NOW</a>
+          </div>
+
+          <div class="col-6 p-2">
+            <img src="images\watch.webp" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Image 2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4">
+      <div class="card h-100 shadow">
+        <div class="row g-0 h-100">
+           <div class="col-6 d-flex flex-column justify-content-center pt-5 ps-5 pb-4">
+            <p> NEW YEAR SALE</p>
+            <h5 class="fw-bold">Get And Extra 50% Off</h5>
+            <a href="products.html" class="btn btn-dark mt-auto" style="color: #F5F5DC;" >SHOW NOW</a>
+          </div>
+          <div class="col-6 p-3">
+            <img src="images\phone.webp" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Image 3">
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- cards ends  -->
+
+
+<!-- cards section start  -->
+
+<div class="container cardss my-5">
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-3 d-flex flex-row align-items-center gap-3">
+        <div class="icon-box text-dark">
+         <i class="fa-solid fa-truck-clock"></i>
+        </div>
+        <div>
+          <p class="mb-0 small text-capitalize fw-bold">worldwide shipping<br>order above $100</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-3 d-flex flex-row align-items-center gap-3">
+        <div class="icon-box text-dark">
+          <i class="fa-solid fa-timer"></i>
+        </div>
+        <div>
+          <p class="mb-0 small text-capitalize fw-bold">Easy 30 day returns <br> back returns in 7 days </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-3 d-flex flex-row align-items-center gap-3">
+        <div class="icon-box  text-dark">
+          <i class="fa-solid fa-money-bill-1-wave"></i>
+        </div>
+        <div>
+          <p class="mb-0 small text-capitalize fw-bold">money back guarantee <br> gaurantee with 30-days </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-3 d-flex flex-row align-items-center gap-3">
+        <div class="icon-box  text-dark">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div>
+          <p class="mb-0 small text-capitalize fw-bold">easy online support <br> 24/7 any time support</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- 
+card section ends  -->
+
+<!-- template  -->
+
+
+<section class="sectionProduct py-5" id="hello">
+  <div class="container text-center common title service-section  text-dark" id="common-title">
+        <h1 class=" hello common heading text-capitalize fw-bolder  checkout" id="common heading" style="color: rgba(39, 37, 37, 0.945)
+        ;">
+         Lets...check out our store
+        </h1>
+        <hr class="w-25 mx-auto">
+        </div>
+   <section conainer="container">
+    <div class=" row g-4 productContainer pt-5">
+
+    </div>
+    </section>
+  </section>
+
+<!-- product section template -->
+
+
+<!-- Product Container -->
+<div class="container py-4" id="hello">
+  <div class="row productContainer"></div>
+</div>
+
+<!-- Product Card Template -->
+<template class="productTemplate">
+  <div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm">
+      <img class="card-img-top productImage py-5 px-5" alt="Product Image" height="auto" width="auto"/>
+      <div class="card-body d-flex flex-column">
+        <p class="text-muted small productCategory mb-1"></p>
+        <h5 class="card-title productName"></h5>
+        <p class="card-text productText mb-2"></p>
+        <p class="mb-1">
+          <strong>In stock:</strong> <span class="product-stock"></span>
+        </p>
+        <div class="productRating mb-2"></div>
+        <div class="mb-2">
+          <span class="text-success fw-bold productPrice"></span>
+          <span class="text-muted text-decoration-line-through productActualPrice"></span>
+        </div>
+        <div class="d-flex align-items-center gap-2 mt-auto">
+          <button class="btn btn-outline-secondary btn-sm minus">−</button>
+          <span class="quantity">1</span>
+          <button class="btn btn-outline-secondary btn-sm plus">+</button>
+        </div>
+        <button class="btn btn-link bg-dark w-100 mt-3 add-to-cart text-decoration-none" style="color:#F5F5DC">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<section class="py-5 bg-white why-choose " id="hello2">
+  <div class="container text-center common title service-section  text-dark" id="common-title">
+        <h5 class="common heading text-capitalize fw-bolder" id="common heading" style="color: rgba(39, 37, 37, 0.945) ;">
+          why choose us !
+        </h5>
+        <hr class="w-25 mx-auto">
+  </div> 
+  <br>
+  <div class="container pt-5">
+    <div class="row align-items-center text-center text-md-start">
+      
+      <!-- Left Features -->
+      <div class="col-md-4 d-flex flex-column gap-4 mb-4 mb-md-0">
+        <div>
+          <h6 class="fw-bold">Wide Selection</h6>
+          <p class="feature-text">Our Store offers a diverse range of gadgets, from smartphones to smart home devices...</p>
+        </div>
+        <div>
+        
+          <h6 class="fw-bold">Quality Assurance</h6>
+          <p class="feature-text">Every gadget undergoes rigorous quality checks, guaranteeing performance...</p>
+        </div>
+        <div>
+      
+          <h6 class="fw-bold">Competitive Prices</h6>
+          <p class="feature-text">Great value with competitive pricing on high-quality gadgets.</p>
+        </div>
+      </div>
+
+      <!-- Center Image -->
+      <div class="col-md-4 mb-4 mb-md-0 text-center">
+        <img src="images\globe.jpg" alt="Shopping Icon" class="img-fluid" style="max-height: 300px;">
+      </div>
+
+      <!-- Right Features -->
+      <div class="col-md-4 d-flex flex-column gap-4">
+        <div>
+          <h6 class="fw-bold">Expert Guidance</h6>
+          <p class="feature-text">Knowledgeable staff help you make informed decisions step-by-step.</p>
+        </div>
+        <div>
+          <h6 class="fw-bold">Convenient Shopping</h6>
+          <p class="feature-text">User-friendly website with smooth browsing and secure checkout.</p>
+        </div>
+        <div>
+          <h6 class="fw-bold">Excellent Service</h6>
+          <p class="feature-text">Prompt support for orders, deliveries, and customer satisfaction.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- why choose us ends  -->
+
+<!-- footer  -->
+
+<!-- Full-width dark footer -->
+<footer class="bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- OUR STORE -->
+      <div class="col-md-3 mb-4">
+        <h5 class="text-uppercase fw-bold mb-3 text-primary">OUR STORE</h5>
+        <p>Welcome to Our Store, your ultimate destination for cutting-edge gadgets!</p>
+        <div class="d-flex gap-2">
+          <img src="" alt="Visa" width="40">
+          <img src="" alt="MasterCard" width="40">
+          <img src="" alt="PayPal" width="40">
+        </div>
+      </div>
+
+      <!-- SHOPPING -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold text-uppercase mb-3">Shopping</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Computer Store</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Laptop Store</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Accessories</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sales & Discount</a></li>
+        </ul>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold text-uppercase mb-3">Experience</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Payment Method</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Delivery</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Return and Exchange</a></li>
+        </ul>
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold text-uppercase mb-3">Newsletter</h6>
+        <p>Be the first to know about new arrivals, sales & promos!</p>
+        <form class="d-flex">
+          <input type="email" class="form-control me-2" placeholder="Your Email">
+          <button class="btn btn-primary">→</button>
+        </form>
+      </div>
+
+    </div>
+
+    <hr class="border-light">
+    <div class="text-center small">
+      © 2025 Our Store. All rights reserved.
+    </div>
+  </div>
+</footer>
+<!-- footer ends -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+   
+    </script>
+    <script src="script/main.js" type="module"></script>
+ <script>
+  var checkbox = document.getElementById("darkSwitch"); // Checkbox element ko select kiya (id = darkSwitch)
+
+  // Jab checkbox ki state change hogi (tick/untick)
+  checkbox.onchange = function () {
+    if (checkbox.checked) {
+      // Agar checkbox tick hai to body me dark-mode class add kar do
+      document.body.classList.add("dark-mode");
+    } else {
+      // Agar checkbox untick hai to body se dark-mode class remove kar do
+      document.body.classList.remove("dark-mode");
+    }
+  };
+</script>
+
+
+<script>
+  // "logout" button pe click hone par event listener lagaya
+  document.getElementById("logout").addEventListener("click", async function (e) {
+    e.preventDefault(); // Default behavior (jaise form submit ya link navigate) ko rokna
+
+    // Backend API ko logout request bhejna
+    const res = await fetch("api/auth/signout", {
+      method: "POST" // Logout ke liye POST request bheji
+      // Logout ek destructive action hai jo server ki state change karta hai, 
+      // isliye POST request use hoti hai, na ki GET.
+    });
+
+    // Agar logout successful hai
+    if (res.ok) {
+      window.location.href = "/"; // User ko landing page par redirect kar do
+    } else {
+      // Agar logout fail ho gaya
+      alert("Logout failed by user"); // Error message dikhana
+    }
+  });
+</script>
+
+
+  </body>
+</html>

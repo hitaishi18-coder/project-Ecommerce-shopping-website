@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>home page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+
+      <!-- Tab Buttons -->
+     <ul class="nav nav-pills mb-4 justify-content-center" id="authTabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="pill" href="#signin">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="pill" href="#signup">Sign Up</a>
+        </li>
+      </ul> 
+
+
+
+      <!-- Forms -->
+      <div class="tab-content bg-white p-4 shadow rounded-4">
+
+        <!-- Sign In Form -->
+        <div class="tab-pane fade show active" id="signin">
+          <h4 class="mb-3 text-center">Sign In</h4>
+          <form>
+            <div class="mb-3">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Enter your email" required />
+            </div>
+            <div class="mb-3">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Enter password" required />
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Login</button>
+          </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="tab-pane fade" id="signup">
+          <h4 class="mb-3 text-center">Sign Up</h4>
+         <form id="signupForm">
+            <div class="mb-3">
+              <label>Full Name</label>
+              <input type="text" class="form-control" placeholder="Your name" required />
+            </div>
+            <div class="mb-3">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Email address" required />
+            </div>
+            <div class="mb-3">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Create password" required />
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Create Account</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Toast Message -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="toastMessage" class="toast align-items-center text-white bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        ✅ Login successful!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!--  Sign Up Success Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="signupSuccessToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        🎉 Account created successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+
+<!--  Login Failed Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="loginErrorToast" class="toast align-items-center text-white bg-danger border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        ❌ Invalid email or password. Please try again.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const signupForm = document.querySelector("#signupForm");
+
+  signupForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+
+    const name = signupForm.querySelector("input[placeholder='Your name']").value;
+    const email = signupForm.querySelector("input[placeholder='Email address']").value;
+    const password = signupForm.querySelector("input[placeholder='Create password']").value;
+ 
+    const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!strongPassword.test(password)) {
+      alert("Password must be at least 8 characters long, include a capital letter, a number, and a special character.");
+      return;
+    }
+
+ 
+  try {
+    const res = await fetch("/api/auth/signup",{
+      method : "POST",
+      headers : {"Content-Type": "application/json"},
+      body : JSON.stringify({name, email,password})
+    });
+
+
+    const data = await res.json();
+    if(res.ok){
+
+      // show toast 
+      showSignupSuccessToast()
+      signupForm.reset();
+    } else {
+      alert("❌" + data.message )
+    }
+  }
+ catch(err){
+  alert("something went wrong");
+
+  }
+});
+
+
+</script>
+<script>
+  const signInForm = document.querySelector("#signin form"); // #signin ke andar ka form select kiya
+  
+  signInForm.addEventListener("submit", async function (e) {
+    e.preventDefault(); // Page reload hone se rokne ke liye (default form submit disable)
+
+    const email = signInForm.querySelector("input[type='email']").value; // Email input ka value liya
+    const password = signInForm.querySelector("input[type='password']").value; // Password input ka value liya
+
+    try {
+      // Backend API ko signin request bhej rahe hain
+      const res = await fetch("/api/auth/signin", {
+        method: "POST", // Data bhejne ke liye POST method use kiya
+        headers: { "Content-Type": "application/json" }, // JSON format me data bhejna hai
+        body: JSON.stringify({ email, password }), // Email aur password ko JSON me convert karke bheja
+      });
+
+      const data = await res.json(); // Response ko JSON me convert kiya
+
+      if (res.ok) {
+        // Agar login successful hai
+        const toast = new bootstrap.Toast(document.getElementById("toastMessage")); // Success toast banaya
+        toast.show(); // Toast dikhaya
+
+        setTimeout(() => {
+          window.location.href = "index.html"; // 1 second baad user ko index.html pe redirect kar do
+        }, 1000);
+
+        signInForm.reset(); // Form ke fields reset kar diye (clear ho jaayenge)
+      } else {
+        // Agar login fail ho gaya
+        showLoginErrorToast(); // Error toast dikhana
+      }
+    } catch (err) {
+      // Agar koi error aaya (jaise server down ya network error)
+      showLoginErrorToast(); // Error toast dikhana
+    }
+  });
+
+  // Signup success hone par toast dikhane ke liye function
+  const showSignupSuccessToast = () => {
+    const toast = new bootstrap.Toast(document.getElementById("signupSuccessToast"));
+    toast.show();
+  };
+
+  // Login error hone par toast dikhane ke liye function
+  const showLoginErrorToast = () => {
+    const toast = new bootstrap.Toast(document.getElementById("loginErrorToast"));
+    toast.show();
+  };
+</script>
+
+
+</body>
+</html>

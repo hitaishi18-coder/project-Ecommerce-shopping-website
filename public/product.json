@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "image": "images/headphone.webp",
+    "price": 1999,
+    "actualPrice": 2999,
+    "stock": 10,
+    "category": "Electronics",
+    "description": "High-quality wireless sound.",
+    "rating": 4
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "image": "images/watch.webp",
+    "price": 1499,
+    "actualPrice": 2199,
+    "stock": 7,
+    "category": "Gadgets",
+    "description": "Track your fitness with ease.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "image": "images/watch.webp",
+    "price": 1499,
+    "actualPrice": 2199,
+    "stock": 7,
+    "category": "Gadgets",
+    "description": "Track your fitness with ease.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "image": "images/watch.webp",
+    "price": 1499,
+    "actualPrice": 2199,
+    "stock": 7,
+    "category": "Gadgets",
+    "description": "Track your fitness with ease.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "image": "images/watch.webp",
+    "price": 1499,
+    "actualPrice": 2199,
+    "stock": 7,
+    "category": "Gadgets",
+    "description": "Track your fitness with ease.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "image": "images/watch.webp",
+    "price": 1499,
+    "actualPrice": 2199,
+    "stock": 7,
+    "category": "Gadgets",
+    "description": "Track your fitness with ease.",
+    "rating": 5
+  }
+]
