@@ -1,35 +1,50 @@
 import express from "express";
 import User from "../model/user.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 const router = express.Router()
 
 //  Sign up route
 router.post("/signup", async (req, res) => {
-  console.log("📥 /signup hit", req.body);
+  console.log("📥 [1] Signup Request Received");
+  console.log("📥 [2] Body:", req.body);
 
   const { name, email, password } = req.body;
 
   try {
-    //  Pehle check karo user already exist karta hai ya nahi
-    const userExist = await User.findOne({ email });
+    // Validation
+    if (!name || !email || !password) {
+      console.log("❌ [Error] Missing fields:", { name: !!name, email: !!email, password: !!password });
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
+    // Check user
+    console.log("🔍 [3] Checking if user exists...");
+    const userExist = await User.findOne({ email });
     if (userExist) {
+      console.log("⚠️ [User Exists] Email:", email);
       return res.status(400).json({ message: "User already exists" });
     }
 
-    //  Password ko hash karna (10 salt rounds ke saath)
-    const hashedPass = await bcrypt.hash(password, 10) 
-    //  plain text password ko kabhi DB me store nahi karte
+    // Hash Password
+    console.log("🔐 [4] Hashing password...");
+    if (typeof password !== 'string') {
+        throw new Error("Password must be a string");
+    }
+    const hashedPass = await bcrypt.hash(password, 10);
+    console.log("✅ [5] Password hashed");
 
-    //  New user create karo
+    // Save User
+    console.log("💾 [6] Saving to MongoDB...");
     const newUser = new User({ name, email, password: hashedPass });
     await newUser.save();
-    console.log("user saved", newUser)
+    console.log("🎉 [7] User saved successfully!");
 
     res.status(201).json({ message: "Signup successful" });
   } catch (err) {
-    res.status(500).json({ message: "Error while creating user" });
+    console.error("❌ [CRITICAL ERROR]:", err);
+    // Send the actual error message back for debugging (temporary)
+    res.status(500).json({ message: "Server Error: " + err.message });
   }
 });
 
@@ -61,6 +76,7 @@ router.post("/signin", async (req, res) => {
 
     res.status(200).json({ message: "Login successful" });
   } catch (err) {
+    console.error("❌ Error during login:", err);
     res.status(500).json({ message: "Error during login" });
   }
 });

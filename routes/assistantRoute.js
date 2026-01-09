@@ -1,9 +1,9 @@
 import express from "express";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 
 const router = express.Router();
 
-// API endpoint: POST /gemini
+// API endpoint: POST /gemini (keeping same endpoint for compatibility)
 router.post("/gemini", async (req, res) => {
   try {
     const { message } = req.body;
@@ -25,24 +25,37 @@ router.post("/gemini", async (req, res) => {
       return res.json({ reply: "Choose something bold like a shimmer dress or a sleek blazer outfit." });
     }
 
-    //  Agar keywords match nahi huye → Gemini AI ko call karenge
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    //  Agar keywords match nahi huye → Groq AI ko call karenge
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY
+    });
     //  API key environment variable se le rahe hain
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-    //  Gemini ka "flash" model use kar rahe (fast replies ke liye)
+    //  Groq ka fast model use kar rahe (llama-3.3-70b-versatile is very fast and accurate)
+    const chatCompletion = await groq.chat.completions.create({
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful fashion assistant. Provide concise, stylish fashion advice and outfit recommendations."
+        },
+        {
+          role: "user",
+          content: message
+        }
+      ],
+      model: "llama-3.3-70b-versatile", // Fast and powerful model
+      temperature: 0.7,
+      max_tokens: 500,
+    });
 
-    const result = await model.generateContent(message);
-    //  User ke message ka AI se jawab manga
-
-    //  Safe navigation se AI ka reply nikal rahe, fallback "No AI reply"
-    const reply = result?.response?.candidates?.[0]?.content?.parts?.[0]?.text || "No AI reply";
+    //  Groq se reply nikal rahe, fallback "No AI reply"
+    const reply = chatCompletion?.choices?.[0]?.message?.content || "No AI reply";
 
     res.json({ reply }); 
     //  Response user ko bheja
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Gemini API error" });
+    res.status(500).json({ error: "Groq API error" });
     // Agar kuch bhi galat ho gaya to 500 error bhej dega
   }
 });

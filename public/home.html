@@ -145,11 +145,13 @@
       showSignupSuccessToast()
       signupForm.reset();
     } else {
-      alert("❌" + data.message )
+      console.error("Signup failed:", data);
+      alert("❌ " + data.message )
     }
   }
  catch(err){
-  alert("something went wrong");
+  console.error("Signup error:", err);
+  alert("❌ Error while creating user. Please check console for details.");
 
   }
 });
