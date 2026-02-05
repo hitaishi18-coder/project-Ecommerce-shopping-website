@@ -348,27 +348,6 @@ npm run lint
 npm run format
 ```
 
-### 🗄️ **Database Commands**
-```bash
-# Start MongoDB
-mongod
-
-# Connect to MongoDB shell
-mongosh
-
-# Show databases
-show dbs
-
-# Use database
-use ecommerce
-
-# Show collections
-show collections
-
-# Find documents
-db.products.find()
-```
-
 ### 🐳 **Docker Commands** (if using Docker)
 ```bash
 # Build image
