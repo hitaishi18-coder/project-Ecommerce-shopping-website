@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 async function connectdb() {
     try{
         await mongoose.connect(process.env.MONGO_URL);
-        console.log("MongoDB Connected")
+        console.log("MongoDB Atlas Connected")
     } catch(error){
         console.log("Mongo Connection Failed",error)
     }
