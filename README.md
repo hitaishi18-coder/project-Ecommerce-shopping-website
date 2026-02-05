@@ -78,6 +78,13 @@
 - **Google Generative AI** 🧠 - Advanced AI capabilities
 - **@google/genai** 🔌 - Official Google AI SDK
 
+### 🔐 Sample Login Credentials
+You can use the following credentials to test the login functionality:
+
+Email: Ecommerce@gmail.com
+
+Password: Ecommerce@123
+
 ---
 
 ## 📋 **Prerequisites**
@@ -153,14 +160,22 @@ SESSION_SECRET=your-super-secret-key-here
 GOOGLE_AI_API_KEY=your-google-ai-api-key
 ```
 
-#### **Step 4: Database Setup**
-```bash
-# Start MongoDB locally
-mongod
+#### **Step 4:🛠️ Database Setup (MongoDB Atlas)
 
-# OR use MongoDB Atlas (cloud)
-# No additional setup needed
-```
+Since the project now uses **MongoDB Atlas**, follow these steps to connect your database:
+
+1.  **Create a Cluster:** Log in to MongoDB Atlas and create a free shared cluster.
+2.  **Network Access:** Go to the "Network Access" tab and click **Add IP Address**. Select **Allow Access From Anywhere (0.0.0.0/0)** to ensure your deployment (e.g., on Render) can connect.
+3.  **Database Access:** Create a database user with a username and password.
+4.  **Get Connection String:** Click **Connect** > **Drivers** and copy your connection string.
+
+### ⚙️ Environment Variables
+
+Create a `.env` file in the root directory and add your Atlas connection string:
+
+```env
+MONGO_URL=mongodb+srv://<username>:<password>@cluster0.xxxx.mongodb.net/ecommerce?retryWrites=true&w=majority
+PORT=8000
 
 #### **Step 5: Start Development Server**
 ```bash
